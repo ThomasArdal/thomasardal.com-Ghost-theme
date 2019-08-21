@@ -1,0 +1,56 @@
+{{!< default}}
+
+{{#post}}
+
+<header id="blog-header"{{#if @blog.cover_image}} class="has-cover"{{/if}}>
+	<div class="inner">
+		<nav id="navigation">
+			{{#if @blog.logo}}
+			<span class="blog-logo">
+				<!-- <a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a> -->
+			</span>
+			{{/if}}
+			{{#if @blog.navigation}}
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+			{{/if}}
+		</nav>
+		<h1 class="blog-name"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+		{{#if @blog.description}}
+		<span class="blog-description">Freelance software consultant and entrepreneur building SaaS applications like <a href="https://elmah.io/?utm_source=thomasardal&utm_campaign=thomasardal&utm_medium=blog">elmah.io</a></span>
+		{{/if}}
+		{{#if @blog.cover_image}}
+		<div class="blog-cover cover" style="background-image: url('{{img_url @blog.cover_image}}');"></div>
+		{{/if}}
+	</div>
+</header>
+
+<section class="twitter-follow">
+	<div class="inner">
+		<p>
+			<a href="https://twitter.com/ThomasArdal" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ThomasArdal</a>
+			<a href="https://twitter.com/elmah_io" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @elmah_io</a>
+		</p>
+	</div>
+</section>
+
+<div id="post-header"{{#if feature_image}} class="has-cover" {{/if}}>
+	<div class="inner">
+		<h1 class="post-title">{{{title}}}</h1>
+	</div>
+</div>
+
+<main class="content" role="main">
+	<article class="{{post_class}}">
+		<div class="inner">
+
+			<section class="post-content">
+				{{content}}
+			</section>
+
+		</div>
+	</article>
+</main>
+
+{{/post}}

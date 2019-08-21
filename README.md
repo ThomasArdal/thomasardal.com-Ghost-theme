@@ -1,1 +1,0 @@
-# thomasardal.com-Ghost-theme
