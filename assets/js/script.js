@@ -233,25 +233,54 @@ $(document).ready(function(){
 	   Search
 	   ========================================================================== */
 
+	var api = new GhostContentAPI({
+		url: 'https://thomas-ardal-blog.ghost.io',
+		key: '62def81227469dba2288485d96',
+		version: "v3"
+	});
+
 	if($("#search").length != 0) {
-    	$.get(ghost.url.api('posts', {limit: 'all', fields: "url,title"})).done(searchData);
+
+    	api.posts.browse({include: 'url,title', limit: 'all'})
+	    .then((posts) => {
+			searchData(posts);
+		})
+	    .catch((err) => {
+	        console.error(err);
+	    });
 
     	function searchData(data) {
-    		let container = $("#searchList");
-    		let options = {
+			let container = $("#searchList");
+
+			const allPosts = [];
+			const fuseOptions = {
 				shouldSort: true,
-				tokenize: true,
 				threshold: 0,
 				location: 0,
 				distance: 100,
+				tokenize: true,
+				matchAllTokens: true,
 				maxPatternLength: 32,
 				minMatchCharLength: 1,
-				keys: [
-			    	"title"
-				]
+				keys: ["title"]
 			};
 
-			let fuse = new Fuse(data.posts, options);
+			api.posts
+				.browse({
+					limit: "all",
+					fields: "id, title, url"
+				}
+			)
+			.then(posts => {
+				for (var i = 0, len = posts.length; i < len; i++) {
+					allPosts.push(posts[i]);
+				}
+
+				fuse = new Fuse(allPosts, fuseOptions);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 
 			$('#search').on('keyup', function(){
 				let result = fuse.search(this.value);
