@@ -573,8 +573,21 @@ table td:after{
     padding:1px;
     z-index:-1;
     content:'';
-    background:#faf9f7
 }
+
+.table-responsive {
+	display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.table-responsive table {
+	margin-top: 0;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0,0,0,.05);
+}
+
 img{
     display:block;
     max-width:100%;
@@ -634,11 +647,11 @@ img{
 }
 #blog-header:after{
     position:absolute;
-    width:40em;
+    width:1200px;
     height:1px;
     left:50%;
     bottom:0;
-    margin-left:-20em;
+    margin-left:-600px;
     content:'';
     background:#e5e4e1
 }
@@ -750,7 +763,7 @@ img{
     background: rgba(0,0,0,0.7);
 }
 .inner{
-    max-width:40em;
+    max-width:1200px;
     margin:0 auto;
     padding:0 2em
 }
@@ -1056,11 +1069,11 @@ img{
 }
 #blog-author:after{
     position:absolute;
-    width:40em;
+    width:1200px;
     height:1px;
     left:50%;
     bottom:0;
-    margin-left:-20em;
+    margin-left:-600px;
     content:'';
     background:#e5e4e1
 }
@@ -1099,11 +1112,11 @@ img{
 }
 .container .post:after{
     position:absolute;
-    width:40em;
+    width:1200px;
     height:1px;
     left:50%;
     bottom:0;
-    margin-left:-20em;
+    margin-left:-600px;
     content:'';
     background:#e5e4e1
 }
@@ -1127,11 +1140,11 @@ img{
 }
 .page-template #footer:after{
     position:absolute;
-    width:40em;
+    width:1200px;
     height:1px;
     left:50%;
     top:0;
-    margin-left:-20em;
+    margin-left:-600px;
     content:'';
     background:#e5e4e1
 }
@@ -1497,11 +1510,11 @@ img{
 }
 .pagination:after{
     position:absolute;
-    width:40em;
+    width:1200px;
     height:1px;
     left:50%;
     bottom:0;
-    margin-left:-20em;
+    margin-left:-600px;
     content:'';
     background:#e5e4e1
 }
@@ -1575,11 +1588,11 @@ img{
 }
 #blog-tag:after {
 	position: absolute;
-    width: 40em;
+    width: 1200px;
     height: 1px;
     left: 50%;
     bottom: 0;
-    margin-left: -20em;
+    margin-left: -600px;
     content: '';
     background: #e5e4e1;
 }
