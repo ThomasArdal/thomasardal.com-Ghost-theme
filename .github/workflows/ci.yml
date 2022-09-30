@@ -1,0 +1,29 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: 'attila-custom-theme.zip'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
+      - name: Push .zip to Ghost Pro
+        uses: TryGhost/action-deploy-theme@v1.3.1
+        with:
+          api-url: ${{ secrets.GHOST_PRO_ADMIN_API_URL }}
+          api-key: ${{ secrets.GHOST_PRO_ADMIN_API_KEY }}
+          file: attila-custom-theme.zip
+      - name: Upload .zip as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: attila-custom-theme.zip
+          path: attila-custom-theme.zip
