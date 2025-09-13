@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
@@ -23,7 +23,7 @@ jobs:
           api-key: ${{ secrets.GHOST_PRO_ADMIN_API_KEY }}
           file: attila-custom-theme.zip
       - name: Upload .zip as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: attila-custom-theme.zip
           path: attila-custom-theme.zip
