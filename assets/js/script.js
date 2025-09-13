@@ -209,7 +209,7 @@ $(document).ready(function(){
 	            layout: 'topLeft',
 	            closeWith: ['button']
 	        }).on('onClose', function() {
-				Cookies.set('elmah-info', 'elmah', { expires: 7 });
+				Cookies.set('elmah-info', 'elmah', { expires: 7, secure: true, sameSite: 'Strict' });
 			}).show();
 		}, 5000);
 	}
