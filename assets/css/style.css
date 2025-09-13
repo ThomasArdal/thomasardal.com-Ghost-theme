@@ -1,4 +1,10 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+:root {
+  --gh-font-heading: "Cardo", sans-serif;
+  --gh-font-body: "Cardo", sans-serif;
+}
+
 html{
     font-family:sans-serif;
     -ms-text-size-adjust:100%;

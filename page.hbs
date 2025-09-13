@@ -2,29 +2,31 @@
 
 {{#post}}
 
-<header id="blog-header"{{#if @site.cover_image}} class="has-cover"{{/if}}>
-	<div class="inner">
-		<nav id="navigation">
-			{{#if @site.logo}}
-			<span class="blog-logo">
-				<!-- <a href="{{@site.url}}"><img src="{{@site.logo}}" alt="Blog Logo" /></a> -->
-			</span>
+{{#match @page.show_title_and_feature_image}}
+	<header id="blog-header"{{#if @site.cover_image}} class="has-cover"{{/if}}>
+		<div class="inner">
+			<nav id="navigation">
+				{{#if @site.logo}}
+				<span class="blog-logo">
+					<!-- <a href="{{@site.url}}"><img src="{{@site.logo}}" alt="Blog Logo" /></a> -->
+				</span>
+				{{/if}}
+				{{#if @site.navigation}}
+				<span id="menu-button" class="nav-button">
+					<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+				</span>
+				{{/if}}
+			</nav>
+			<h1 class="blog-name"><a href="{{@site.url}}">{{@site.title}}</a></h1>
+			{{#if @site.description}}
+			<span class="blog-description">Entrepreneur and founder of <a href="https://elmah.io/?utm_source=thomasardal&amp;utm_campaign=thomasardal&amp;utm_medium=blog">elmah.io</a></span>
 			{{/if}}
-			{{#if @site.navigation}}
-			<span id="menu-button" class="nav-button">
-				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
-			</span>
+			{{#if @site.cover_image}}
+			<div class="blog-cover cover" style="background-image: url('{{img_url @site.cover_image}}');"></div>
 			{{/if}}
-		</nav>
-		<h1 class="blog-name"><a href="{{@site.url}}">{{@site.title}}</a></h1>
-		{{#if @site.description}}
-		<span class="blog-description">Entrepreneur and founder of <a href="https://elmah.io/?utm_source=thomasardal&amp;utm_campaign=thomasardal&amp;utm_medium=blog">elmah.io</a></span>
-		{{/if}}
-		{{#if @site.cover_image}}
-		<div class="blog-cover cover" style="background-image: url('{{img_url @site.cover_image}}');"></div>
-		{{/if}}
-	</div>
-</header>
+		</div>
+	</header>
+{{/match}}
 
 <section class="twitter-follow">
 	<div class="inner">
