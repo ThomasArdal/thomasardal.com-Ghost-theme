@@ -1017,6 +1017,18 @@ img{
     font-size:0.8em;
     color:inherit
 }
+#menu li a img {
+    position: relative;
+    top: -1px;
+    font-size: 0.8em;
+    color: inherit;
+    max-width: inherit;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin: 0 3.2px;
+    vertical-align: middle;
+}
 #menu li.active a{
     color:#000;
     font-weight:500
@@ -1619,11 +1631,30 @@ img{
     border-bottom: 1px solid #e5e4e1;
 }
 .twitter-follow p {
-    margin: 10px 0px 6px 0px;
+    margin: 10px 0px;
     line-height: 1;
 }
-.twitter-follow p a {
-    display: none;
+.twitter-follow p a.twitter-follow-button {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 99px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Fira Sans', sans-serif;
+    cursor: pointer;
+}
+.twitter-follow p a.twitter-follow-button img {
+    display: inline;
+    height: 16px;
+    width: 16px;
+    max-width: initial;
+    margin: initial;
+    vertical-align: text-bottom;
+}
+.twitter-follow p a.twitter-follow-button:hover {
+    background: #333;
 }
 
 
